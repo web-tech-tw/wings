@@ -7,16 +7,26 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "lint-staged",
+    "lint:es:fix": "eslint . --fix",
+    "lint:es:check": "eslint . --max-warnings 0",
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint",
+    "*.vue": "eslint"
   },
   "dependencies": {
-    "@nuxt/eslint": "1.10.0",
     "@nuxt/image": "2.0.0",
     "@nuxt/scripts": "0.13.0",
-    "@nuxt/test-utils": "3.20.1",
     "@nuxt/ui": "4.1.0",
     "@unhead/vue": "^2.0.3",
-    "eslint": "^9.0.0",
     "jwt-decode": "^4.0.0",
     "ky": "^1.7.2",
     "nuxt": "^4.2.1",
@@ -25,6 +35,16 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@iconify-json/heroicons": "^1.2.3"
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@iconify-json/heroicons": "^1.2.3",
+    "@nuxt/eslint": "1.10.0",
+    "@nuxt/test-utils": "3.20.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.0.0",
+    "eslint-config-nymph": "^0.15.3",
+    "eslint-plugin-jsdoc": "^48.2.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0"
   }
 }
