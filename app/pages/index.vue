@@ -60,11 +60,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {ref} from 'vue';
 
-const toastMessage = ref("");
+const toastMessage = ref('');
 
 const onClickHello = () => {
-  toastMessage.value = "Hello!";
+  toastMessage.value = 'Hello!';
 };
 </script>
