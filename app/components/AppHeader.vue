@@ -303,7 +303,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from "vue";
+import {ref, onMounted, onUnmounted, computed} from 'vue';
 
 import {
   title,
@@ -314,7 +314,7 @@ import {
   onClickSara,
   type MenuFunctionItem,
   type MenuDropdownChild,
-} from "../data/AppHeaderMenuData";
+} from '../data/AppHeaderMenuData';
 
 const isMobileMenuOpened = ref(false);
 const activeDropdown = ref<string | null>(null);
@@ -324,13 +324,13 @@ const isMenuItemExist = isSaraEnabled || menuItems.length;
 const profile = useProfile();
 
 const nickname = computed(() => {
-  if (!profile) return "";
+  if (!profile) return '';
   return profile.nickname;
 });
 
 const identicon = computed(() => {
-  if (!profile) return "";
-  const { avatar_hash: avatarHash } = profile;
+  if (!profile) return '';
+  const {avatar_hash: avatarHash} = profile;
   return `https://api.gravatar.com/avatar/${avatarHash}?d=identicon`;
 });
 
@@ -370,17 +370,17 @@ const onClickSaraBtn = (): void => {
 
 const onDocumentClick = (e: MouseEvent): void => {
   const target = e.target as HTMLElement;
-  if (!document.querySelector(".app-header")?.contains(target)) {
+  if (!document.querySelector('.app-header')?.contains(target)) {
     isMobileMenuOpened.value = false;
     activeDropdown.value = null;
   }
 };
 
 onMounted(() => {
-  document.addEventListener("click", onDocumentClick);
+  document.addEventListener('click', onDocumentClick);
 });
 
 onUnmounted(() => {
-  document.removeEventListener("click", onDocumentClick);
+  document.removeEventListener('click', onDocumentClick);
 });
 </script>
